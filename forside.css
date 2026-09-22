@@ -1,0 +1,130 @@
+/* ==================================================
+   FORSIDE
+   ================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fffaf4;
+  color: #000;
+}
+
+.home {
+  background-color: #fffaf4;
+  min-height: 100vh;
+}
+
+.home-hero {
+  position: relative;
+  min-height: 530px;
+  overflow: hidden;
+  background-color: #fff3e7;
+  border-radius: 0 0 32px 32px;
+}
+
+.home-hero__logo {
+  position: relative;
+  z-index: 2;
+  width: 135px;
+  margin-top: 28px;
+  margin-left: 32px;
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 58%;
+  margin-left: 32px;
+  margin-top: 12px;
+}
+
+.home-hero__content h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.12;
+  font-weight: 800;
+  color: #000;
+}
+
+.home-hero__content p {
+  margin: 14px 0 20px;
+  font-size: 16px;
+  line-height: 1.15;
+  color: #000;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-btn {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 235px;
+  min-height: 48px;
+  padding: 0 16px;
+
+  border-radius: 999px;
+
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hero-btn__icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.hero-btn__arrow {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.hero-btn--primary {
+  background-color: #b51d17;
+  color: #fff;
+}
+
+.hero-btn--secondary {
+  background-color: transparent;
+  color: #b51d17;
+  border: 1.5px solid #b51d17;
+}
+
+.home-hero__image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -240px;
+  height: 92%;
+  width: auto;
+  max-width: none;
+}

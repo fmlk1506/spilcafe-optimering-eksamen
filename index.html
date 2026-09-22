@@ -6,7 +6,7 @@
 
     <title>Spilcaféen | Forside</title>
 
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="forside.css" />
 
     <link
       rel="shortcut icon"
@@ -18,7 +18,70 @@
   <body>
     <main class="home">
       <section class="home-hero">
-        <h1>Find dit næste spil</h1>
+        <img
+          src="images/logo-spilcafeen.webp"
+          alt="Spilcaféen"
+          class="home-hero__logo"
+        />
+
+        <div class="home-hero__content">
+          <h1>Find dit<br />næste spil</h1>
+
+          <p>
+            Find et brætspil, der passer<br />
+            til jer. Søg eller filtrér blandt<br />
+            caféens spil.
+          </p>
+
+          <div class="home-hero__actions">
+            <a href="spil.html" class="hero-btn hero-btn--primary">
+              <svg
+                class="hero-btn__icon"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="6"></circle>
+                <path d="M16 16l4 4"></path>
+              </svg>
+
+              <span>Find et spil</span>
+
+              <svg
+                class="hero-btn__arrow"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m14 7 5 5-5 5"></path>
+              </svg>
+            </a>
+
+            <a href="#" class="hero-btn hero-btn--secondary">
+              <svg
+                class="hero-btn__icon"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
+                <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+                <path d="M8 3v4M16 3v4M4 9h16"></path>
+                <path d="M8 13h2M12 13h2M16 13h1M8 17h2M12 17h2"></path>
+              </svg>
+
+              <span>Reservér bord</span>
+
+              <svg
+                class="hero-btn__arrow"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m14 7 5 5-5 5"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <img src="images/hero-forside.webp" alt="" class="home-hero__image" />
       </section>
     </main>
   </body>
