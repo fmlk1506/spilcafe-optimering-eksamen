@@ -81,6 +81,17 @@
         </button>
       </div>
 
+      <!-- AKTIVE FILTRE -->
+      <section class="active-filters" id="active-filters" hidden>
+        <h2>Aktive filtre</h2>
+
+        <div
+          class="active-filters__list"
+          id="active-filters-list"
+          aria-live="polite"
+        ></div>
+      </section>
+
       <!-- FILTERPANEL -->
       <div class="filter-panel" id="filter-panel" hidden>
         <div class="filter-panel__header">
@@ -263,6 +274,8 @@
             </div>
           </div>
         </div>
+
+        <!-- FILTERHANDLINGER -->
         <div class="filter-panel__actions">
           <button type="button" class="filter-show-results" id="show-results">
             Vis spil

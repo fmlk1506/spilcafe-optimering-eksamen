@@ -48,6 +48,10 @@ const openFiltersButton = document.getElementById("open-filters");
 const closeFiltersButton = document.getElementById("close-filters");
 const filterPanel = document.getElementById("filter-panel");
 
+const showResultsButton = document.getElementById("show-results");
+const activeFilters = document.getElementById("active-filters");
+const activeFiltersList = document.getElementById("active-filters-list");
+
 // Sortering
 const openSortButton = document.getElementById("open-sort");
 
@@ -175,6 +179,41 @@ closeFiltersButton?.addEventListener("click", () => {
   openFiltersButton?.focus();
 });
 
+showResultsButton?.addEventListener("click", () => {
+  filterPanel.hidden = true;
+  openFiltersButton?.setAttribute("aria-expanded", "false");
+
+  updateActiveFilters();
+  render();
+});
+
+activeFiltersList?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-remove-filter]");
+
+  if (!button) return;
+
+  const filter = button.dataset.removeFilter;
+
+  if (filter === "genre" && els.genre) {
+    els.genre.value = "all";
+  }
+
+  if (filter === "players") {
+    selectedPlayers = "all";
+  }
+
+  if (filter === "age") {
+    selectedAge = "all";
+  }
+
+  if (filter === "duration") {
+    selectedDuration = "all";
+  }
+
+  updateActiveFilters();
+  render();
+});
+
 // ========================================
 // FILTERKNAPPER
 // ========================================
@@ -186,6 +225,18 @@ function handleFilterClick(event) {
 
   const filter = button.dataset.filter;
   const value = button.dataset.value;
+
+  // Fjern markering fra andre valg i samme filtergruppe
+  const filterGroup = button.closest(".filter-options");
+
+  filterGroup?.querySelectorAll(".filter-option").forEach((option) => {
+    option.classList.remove("active");
+    option.setAttribute("aria-pressed", "false");
+  });
+
+  // Markér det valgte filter
+  button.classList.add("active");
+  button.setAttribute("aria-pressed", "true");
 
   if (filter === "genre") {
     setSelectValue(els.genre, value);
@@ -563,6 +614,81 @@ function updateFavTabCounter() {
 }
 
 // ========================================
+// AKTIVE FILTRE
+// ========================================
+
+function updateActiveFilters() {
+  if (!activeFilters || !activeFiltersList) return;
+
+  const filters = [];
+
+  if (els.genre?.value && els.genre.value !== "all") {
+    filters.push({
+      type: "genre",
+      label: els.genre.value,
+    });
+  }
+
+  if (selectedPlayers !== "all") {
+    filters.push({
+      type: "players",
+      label: `${selectedPlayers} spillere`,
+    });
+  }
+
+  if (selectedAge !== "all") {
+    filters.push({
+      type: "age",
+      label: `${selectedAge}+ år`,
+    });
+  }
+
+  if (selectedDuration !== "all") {
+    let label = selectedDuration;
+
+    if (selectedDuration === "0-30") {
+      label = "< 30 min";
+    }
+
+    if (selectedDuration === "30-60") {
+      label = "30-60 min";
+    }
+
+    if (selectedDuration === "60-120") {
+      label = "+60 min";
+    }
+
+    filters.push({
+      type: "duration",
+      label,
+    });
+  }
+
+  if (filters.length === 0) {
+    activeFilters.hidden = true;
+    activeFiltersList.innerHTML = "";
+    return;
+  }
+
+  activeFilters.hidden = false;
+
+  activeFiltersList.innerHTML = filters
+    .map(
+      (filter) => `
+        <button
+          class="active-filter"
+          type="button"
+          data-remove-filter="${filter.type}"
+        >
+          <span>${escapeHtml(filter.label)}</span>
+          <span aria-hidden="true">×</span>
+        </button>
+      `,
+    )
+    .join("");
+}
+
+// ========================================
 // RYD FILTRE
 // ========================================
 
@@ -610,9 +736,14 @@ function clearAllFilters() {
   selectedAge = "all";
   selectedPlayers = "all";
   selectedDuration = "all";
-
   SHOW_FAVS = false;
 
+  document.querySelectorAll(".filter-option").forEach((button) => {
+    button.classList.remove("active");
+    button.setAttribute("aria-pressed", "false");
+  });
+
+  updateActiveFilters();
   render();
 }
 
