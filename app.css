@@ -132,10 +132,64 @@ body {
 }
 
 /* =========================================================
+  FILTRE
+  ========================================================= */
+
+/* Nye knapper til filtrering og sortering */
+.filter-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 12px 0 20px;
+}
+
+.filter-action {
+  min-height: 44px;
+  border-radius: 24px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.filter-action__icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.filter-action--primary {
+  background: #b3211b;
+  color: #fff;
+  border: 2px solid #b3211b;
+}
+
+.filter-action--secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--ring);
+}
+
+/* Den gamle filterbar skjules midlertidigt */
+.filterbar {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+/* =========================================================
   FILTRE under søg – venstre/scroll, “Ryd filtre” til højre
   ========================================================= */
 .filterbar {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 8px;
   margin: 10px 0 14px;
@@ -810,4 +864,20 @@ body {
   .dropdown-menu button {
     transition: none !important;
   }
+}
+
+/* Header på spiloversigten */
+.games-header {
+  padding: 18px 16px 8px;
+}
+
+.games-header__logo {
+  display: block;
+  width: 80px;
+  height: auto;
+}
+
+/* Skjul filterpanelet, når det ikke er åbent */
+.filter-panel[hidden] {
+  display: none;
 }
