@@ -255,6 +255,9 @@ body {
 
 .popular-card {
   min-width: 0;
+  background-color: #f8eadc;
+  border-radius: 16px;
+  padding: 10px;
 }
 
 .popular-card__image-wrap {

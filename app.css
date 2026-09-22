@@ -1,17 +1,27 @@
 /* =========================================================
-  Farver, base og variabler
-  ========================================================= */
+   1. FARVER OG BASE
+   ========================================================= */
+
 :root {
-  --cream: #f5ebdc;
+  /* Farver fra forsiden */
+  --page-bg: #fffaf4;
+  --light-bg: #f8eadc;
+  --hero-bg: #fff3e7;
+  --soft-pink: #f4ded3;
+  --red: #b51d17;
+
+  /* Tekst og UI */
+  --text: #000;
+  --text-soft: #3b2118;
+  --ring: #e2d2c5;
+  --white: #fff;
+
+  /* Booking - beholdes foreløbigt */
   --brown: #41120c;
   --brown-2: #5b2a1a;
-  --text: #2b1a14;
-  --light: #fff8f0;
-  --muted: #bdaaa1;
-  --ring: #d9c9bf;
-  --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  --radius: 18px;
-  --thumb-ratio: 4/3;
+
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --thumb-ratio: 4 / 3;
 }
 
 * {
@@ -24,70 +34,19 @@ body {
   padding: 0;
 }
 
-/* baggrundsfarve */
 body {
-  background: var(--cream);
+  background-color: var(--page-bg);
   color: var(--text);
   font:
-    16px/1.4 ui-sans-serif,
-    system-ui,
-    Segoe UI,
-    Roboto,
-    Inter;
+    16px/1.4 Arial,
+    Helvetica,
+    sans-serif;
 }
 
 /* =========================================================
-  HEADER – mørk topbjælke + svævende logo
-  ========================================================= */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 3000;
-  background: var(--cream);
-  padding-top: 100px;
-  /* plads til logoet ovenfor bjælken */
-  padding-bottom: 28px;
-  /* luft under bjælken (afstand til søg) */
-  margin: 0 0 16px;
-  overflow: visible;
-}
+   2. TILGÆNGELIGHED
+   ========================================================= */
 
-/* Selve bjælken: absolut, så padding ikke skubber den */
-.topbar-bar {
-  position: absolute;
-  inset: 0 auto auto 0;
-  height: 68px;
-  width: 100%;
-  background: var(--brown);
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  box-shadow: var(--shadow);
-}
-
-/* Logoet svæver ovenpå bjælken */
-.header-logo {
-  position: absolute;
-  left: 50%;
-  top: 6px;
-  /* sænk/hæv logoet i bjælken */
-  transform: translateX(-50%);
-  height: 96px;
-  /* logo-størrelse */
-  z-index: 10;
-}
-
-/* tilbage-knap i topbaren */
-.icon-btn {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  font-size: 20px;
-  color: #fff;
-  line-height: 1;
-  padding: 4px 6px;
-  cursor: pointer;
-}
-/* H1 bliver skjult på skræmen men bliver læst højt for skærmlæsebrugere */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -101,41 +60,87 @@ body {
 }
 
 /* =========================================================
-  SIDE-INDHOLD
-  ========================================================= */
-.page {
-  padding: 12px 14px 110px;
-  /* ekstra bund-padding så tabbar ikke dækker */
-  max-width: min(1400px, 100%);
-  margin: 0 auto;
+   3. HEADER PÅ SPILSIDEN
+   ========================================================= */
+
+.games-header {
+  padding: 18px 16px 8px;
+  background-color: var(--page-bg);
 }
 
-/* Søg-bar */
+.games-header__logo {
+  display: block;
+  width: 80px;
+  height: auto;
+}
+
+/* =========================================================
+   4. SIDEINDHOLD
+   ========================================================= */
+
+.page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 14px 110px;
+  background-color: var(--page-bg);
+}
+
+.games-intro h1 {
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.games-intro p {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* =========================================================
+   5. SØGNING
+   ========================================================= */
+
 .searchbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
+
+  background: var(--white);
   border: 1px solid var(--ring);
-  box-shadow: var(--shadow);
   border-radius: 999px;
+
   padding: 8px 12px;
   margin: 10px 0 8px;
+
+  box-shadow: var(--shadow);
 }
 
 .searchbar input {
   flex: 1;
+  min-width: 0;
   border: 0;
   outline: 0;
   background: transparent;
+
+  font: inherit;
   font-size: 16px;
+  color: var(--text);
+}
+
+.icon-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
 }
 
 /* =========================================================
-  FILTRE
-  ========================================================= */
+   6. FILTER- OG SORTERINGSKNAPPER
+   ========================================================= */
 
-/* Nye knapper til filtrering og sortering */
 .filter-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -146,8 +151,10 @@ body {
 .filter-action {
   min-height: 44px;
   border-radius: 24px;
+
   font: inherit;
   font-weight: 600;
+
   cursor: pointer;
 
   display: flex;
@@ -166,9 +173,9 @@ body {
 }
 
 .filter-action--primary {
-  background: #b3211b;
-  color: #fff;
-  border: 2px solid #b3211b;
+  background: var(--red);
+  color: var(--white);
+  border: 2px solid var(--red);
 }
 
 .filter-action--secondary {
@@ -177,241 +184,249 @@ body {
   border: 1px solid var(--ring);
 }
 
-/* Den gamle filterbar skjules midlertidigt */
-.filterbar {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  margin: 10px 0 14px;
-}
-
 /* =========================================================
-  FILTRE under søg – venstre/scroll, “Ryd filtre” til højre
-  ========================================================= */
-.filterbar {
+   7. FILTERPANEL
+   ========================================================= */
+
+.filter-panel[hidden] {
   display: none;
-  align-items: center;
-  gap: 8px;
-  margin: 10px 0 14px;
 }
 
-.filterbar .filters-row {
-  flex: 1 1 auto;
-  min-width: 0;
+.filter-panel {
+  margin: 24px 0 30px;
+}
+
+.filter-panel__header {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding-bottom: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 6px;
 }
 
-/* Standard “pill”-stil (bruges også i dropdown-trigger-knapper) */
-.pill {
-  appearance: none;
-  background: #65301e;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-  padding: 10px 16px;
-  /* lidt større */
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  transition:
-    transform 0.18s ease,
-    background-color 0.18s ease,
-    box-shadow 0.18s ease;
-  will-change: transform;
-  transform-origin: center;
+.filter-panel__header h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--text);
 }
 
-.pill:hover,
-.pill:focus-visible,
-.pill:active {
-  transform: scale(1.07);
-  background: var(--brown-2);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+.filter-panel__header p {
+  color: var(--text);
 }
 
-.pill:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
-  outline-offset: 2px;
-}
-
-/* Dropdown trigger-pills lys stil */
-.filter-dropdown {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.filter-dropdown .pill {
-  background: var(--brown);
-  color: var(--ring);
-  border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.filter-dropdown .pill:hover {
-  background: var(--brown-2);
-  transform: scale(1.07);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-}
-
-/* Dropdown-menu */
-.dropdown-menu {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  display: none;
-  flex-direction: column;
-  min-width: 180px;
-  background: #f5ebdc;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  z-index: 3200;
-  overflow: hidden;
-}
-
-.filter-dropdown.open .dropdown-menu {
-  display: flex;
-}
-
-.dropdown-floating {
-  position: fixed !important;
-  z-index: 10000 !important;
-  display: flex !important;
-  top: 0;
-  left: 0;
-}
-
-/* Punkter i dropdown-menuen + hover-pop */
-.dropdown-menu button {
+.filter-panel__close {
   appearance: none;
   border: 0;
   background: transparent;
-  padding: 10px 14px;
-  text-align: left;
-  font-size: 15px;
   color: var(--text);
+
+  font-size: 28px;
+  line-height: 1;
+
   cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    background-color 0.15s ease;
-  display: inline-block;
-  transform-origin: center;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dropdown-menu button:hover {
-  transform: scale(1.08);
-  background: var(--brown-2);
-  color: #fff;
+.filter-panel__intro {
+  margin: 0 0 28px;
+  font-size: 15px;
 }
 
-/* “Ryd filtre”-pillen på højre side */
-.clear-pill {
-  flex: 0 0 auto;
-  background: var(--brown);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.filter-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================================================
+   8. FILTERGRUPPER
+   ========================================================= */
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-group h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-option {
+  appearance: none;
+
+  min-height: 40px;
+  padding: 8px 14px;
+
+  border: 1px solid var(--ring);
   border-radius: 999px;
-  padding: 10px 16px;
-  font-weight: 800;
-  white-space: nowrap;
+
+  background: transparent;
+  color: var(--text);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
   cursor: pointer;
+
   transition:
-    transform 0.2s ease,
     background-color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.clear-pill:hover {
-  transform: scale(1.08);
-  background: var(--brown-2);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+.filter-option:hover {
+  border-color: var(--red);
 }
 
-/* Skjul evt. gamle rækker hvis de findes i DOM’en */
-.top-actions {
-  display: none !important;
+.filter-option:focus-visible {
+  outline: 3px solid rgba(181, 29, 23, 0.25);
+  outline-offset: 2px;
 }
 
-.more-filters {
-  display: none !important;
+.filter-option.active,
+.filter-option[aria-pressed="true"] {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
 }
+
+/* =========================================================
+   FILTERPANEL – KNAPPER
+   ========================================================= */
+
+.filter-panel__actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.filter-show-results {
+  width: 100%;
+  min-height: 44px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: var(--red);
+  color: var(--white);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.clear-pill {
+  width: 100%;
+  min-height: 44px;
+
+  border: 1px solid var(--ring);
+  border-radius: 999px;
+
+  background: transparent;
+  color: var(--text);
+
+  padding: 10px 16px;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.clear-pill:hover,
+.clear-pill:focus-visible {
+  border-color: var(--red);
+}
+
+/* =========================================================
+   9. SKJULTE FELTER TIL APP.JS
+   ========================================================= */
 
 .filters-storage[hidden] {
   display: none;
 }
 
 /* =========================================================
-  KORT / SPIL-KORT
-  ========================================================= */
+   10. SPILOVERSIGT
+   ========================================================= */
+
 .card-grid {
   display: grid;
-  gap: 12px;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-}
-
-@media (max-width: 380px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
+  gap: 12px;
 }
 
 .card {
-  background: var(--brown);
-  color: #fff;
+  background: var(--light-bg);
+  color: var(--text);
+
   border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px;
+
+  border: 0;
+  box-shadow: none;
 }
 
 .thumb {
   position: relative;
+
   border-radius: 12px;
   overflow: hidden;
-  background: #00000055;
+
+  background: #f5ebdc;
+
   aspect-ratio: var(--thumb-ratio);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .thumb img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.fav {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #fff;
-  border-radius: 999px;
-  padding: 6px 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.fav.active {
-  background: #fff;
-  color: #c0183c;
+  object-fit: contain;
 }
 
 .card h3 {
-  margin: 8px 4px 6px;
+  margin: 10px 4px 6px;
   font-size: 16px;
+  color: var(--text);
 }
 
 .meta,
 .extra {
-  color: #f1dfd6;
-  opacity: 0.95;
   display: flex;
   gap: 10px;
+
   margin: 0 4px 4px;
+
+  color: var(--text);
+  opacity: 1;
+
   font-size: 14px;
 }
 
@@ -420,32 +435,66 @@ body {
   gap: 2px;
 }
 
+/* =========================================================
+   11. FAVORITTER OG BADGES
+   ========================================================= */
+
+.fav {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--white);
+  color: var(--text);
+
+  border: 1px solid #ddd;
+  border-radius: 50%;
+
+  padding: 0;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fav.active {
+  background: var(--white);
+  color: var(--red);
+  border-color: var(--red);
+}
+
 .badges {
   position: absolute;
-  left: 8px;
   top: 8px;
+  left: 8px;
+
   display: flex;
   gap: 6px;
 }
 
 .badge {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 3px 6px;
+  background: var(--white);
+  color: var(--text);
+
+  padding: 3px 7px;
+
   font-size: 12px;
+  font-weight: 600;
+
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--ring);
 }
 
-/* FOOTER */
-.legal {
-  text-align: center;
-  color: #9b8479;
-  font-size: 12px;
-  padding: 10px 0 80px;
-}
+/* =========================================================
+   12. MODAL – SPILDETALJER
+   ========================================================= */
 
-/* MODAL (kortdetaljer) */
 .modal[hidden] {
   display: none;
 }
@@ -453,82 +502,113 @@ body {
 .modal {
   position: fixed;
   inset: 0;
+  z-index: 4000;
+
   display: grid;
   place-items: center;
+
   padding: 16px;
 }
 
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.122);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .modal-card {
   position: relative;
   z-index: 1;
-  background: var(--brown);
-  color: #fff;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: var(--shadow);
+
   width: min(920px, 100%);
+  max-height: 90vh;
+
   display: flex;
   flex-direction: column;
-  max-height: 90vh;
+
   overflow: hidden;
+
+  background: var(--light-bg);
+  color: var(--text);
+
+  border: 1px solid var(--ring);
+  border-radius: 18px;
+
+  box-shadow: var(--shadow);
 }
 
 .modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #fff;
-  border-radius: 999px;
+  z-index: 2;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--white);
+  color: var(--text);
+
+  border: 1px solid var(--ring);
+  border-radius: 50%;
+
   font-size: 22px;
   line-height: 1;
-  padding: 6px 10px;
+
+  padding: 0;
   cursor: pointer;
 }
 
 .modal-media {
   flex: 0 0 auto;
-  background: #1a1a1a7b;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: #f5ebdc;
+
   padding: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-bottom: 1px solid var(--ring);
 }
 
 .modal-media img {
+  display: block;
+
   width: 100%;
   height: auto;
   max-height: 350px;
+
   object-fit: contain;
-  display: block;
 }
 
 .modal-body {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem 1.5rem;
+
   display: grid;
   gap: 10px;
+
+  padding: 1rem 1.5rem;
 }
 
 .modal-body h2 {
   margin: 0;
   font-size: clamp(20px, 3.2vw, 28px);
+  color: var(--text);
 }
 
 .modal-meta {
   display: flex;
-  gap: 14px;
-  opacity: 0.95;
   flex-wrap: wrap;
+  gap: 14px;
+  opacity: 1;
+  color: var(--text);
 }
 
 .modal-details {
@@ -537,26 +617,29 @@ body {
 }
 
 .modal-details span {
-  opacity: 0.95;
+  opacity: 1;
 }
 
-/* Regler fold-ud */
+/* =========================================================
+   13. REGLER I MODAL
+   ========================================================= */
+
 .rules-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 1rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 1.1rem;
-  transition: color 0.2s ease;
-}
 
-.rules-btn:hover {
-  color: #ffd479;
+  margin-top: 1rem;
+
+  background: none;
+  border: 0;
+
+  color: var(--red);
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  cursor: pointer;
 }
 
 .rules-btn[aria-expanded="true"]::before {
@@ -570,6 +653,7 @@ body {
 .rules-content {
   max-height: 0;
   overflow: hidden;
+
   transition: max-height 0.3s ease;
 }
 
@@ -578,56 +662,58 @@ body {
 }
 
 #modal-rules {
-  background: rgba(255, 255, 255, 0.05);
+  margin-top: 0.5rem;
   padding: 0.75rem;
+
+  background: var(--hero-bg);
   border-radius: 6px;
+
   white-space: pre-wrap;
   line-height: 1.4;
-  margin-top: 0.5rem;
 }
 
 /* =========================================================
-  BOOKING FLOW (forkortet; bevaret funktionelt)
-  ========================================================= */
+   14. BOOKING
+   Beholdes foreløbigt som eksisterende design
+   ========================================================= */
+
 .booking[hidden] {
   display: none;
 }
 
 .booking {
   position: relative;
-  /* sikrer normal stacking under tabbar */
+
   max-width: clamp(600px, 90vw, 1100px);
+
   margin: 0 auto;
   padding: 20px 16px 120px;
-  /* bund-padding så tabbar ikke dækker */
 }
 
 .booking-top {
   display: flex;
   align-items: center;
   gap: 10px;
+
   margin-bottom: 8px;
 }
 
 .booking-logo {
-  height: 56px;
   display: block;
+
+  height: 56px;
+
   margin: 10px auto 8px;
 }
 
-@media (min-width: 900px) {
-  .booking-logo {
-    height: 80px;
-    margin: 14px auto 10px;
-  }
-}
-
 .booking-title {
+  margin: 10px 0 16px;
+
+  color: #3b2118;
+
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 800;
   text-align: center;
-  margin: 10px 0 16px;
-  color: #3b2118;
 }
 
 .booking-stage {
@@ -645,58 +731,78 @@ body {
 
 .booking-card {
   background: var(--brown);
-  color: #fff;
-  border-radius: 14px;
-  padding: 8px;
+  color: var(--white);
+
   border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  padding: 8px;
+
   box-shadow: var(--shadow);
+
   cursor: pointer;
 }
 
 .booking-card img {
+  display: block;
+
   width: 100%;
   height: 120px;
+
   object-fit: cover;
+
   border-radius: 10px;
-  display: block;
 }
 
-@media (min-width: 900px) {
-  .booking-cafes {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .booking-card img {
-    height: 150px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .booking-cafes {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
+/* =========================================================
+   15. BOOKING – ANTAL PERSONER
+   ========================================================= */
 
 .booking-bubbles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
-/* --- BOOKING – Kalender (runde dag-bobler) --- */
+
+.bubble {
+  background: var(--brown-2);
+  color: var(--white);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+
+  padding: 16px 0;
+
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   16. BOOKING – KALENDER
+   ========================================================= */
+
 .cal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   margin: 6px 0 8px;
 }
+
 .cal-arrow {
   appearance: none;
   border: 0;
   background: transparent;
-  cursor: pointer;
-  font-size: 22px;
-  padding: 6px 10px;
   color: #3b2118;
+
+  font-size: 22px;
+
+  padding: 6px 10px;
+
+  cursor: pointer;
 }
 
 .calendar {
@@ -707,74 +813,80 @@ body {
 }
 
 .cal-day {
-  /* ma, ti, on ... */
-  font-weight: 700;
-  font-size: 14px;
   color: #7b5647;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .cal-cell {
-  /* <-- de enkelte dages KNAPPER */
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* gør dem RUNDE */
-  border: 1px solid var(--ring);
-  background: #7fa763;
-  color: var(--text);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border: 1px solid var(--ring);
+  border-radius: 50%;
+
+  background: #7fa763;
+  color: var(--text);
+
   cursor: pointer;
+
   transition:
     transform 0.15s ease,
     background-color 0.15s ease;
 }
+
 .cal-cell:hover {
   background: #f2e4d8;
   transform: scale(1.06);
 }
+
 .cal-cell.selected {
   background: #7b5647;
-  color: #fff;
+  color: var(--white);
 }
+
 .cal-cell.busy {
   background: #c27474;
-  color: #fff;
+  color: var(--white);
   cursor: not-allowed;
 }
 
 .legend {
-  margin-top: 10px;
-  color: #7b5647;
-  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
+
+  margin-top: 10px;
+
+  color: #7b5647;
+
+  font-size: 14px;
 }
+
 .dot {
+  display: inline-block;
+
   width: 10px;
   height: 10px;
+
   border-radius: 50%;
-  display: inline-block;
 }
+
 .dot-green {
   background: #7fb77e;
 }
+
 .dot-red {
   background: #c27474;
 }
 
-.bubble {
-  background: #5b2a1a;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-  padding: 16px 0;
-  text-align: center;
-  font-weight: 800;
-  cursor: pointer;
-  font-size: 18px;
-}
+/* =========================================================
+   17. BOOKING – TIDSPUNKTER
+   ========================================================= */
 
 .booking-time {
   display: grid;
@@ -782,18 +894,16 @@ body {
   gap: 12px;
 }
 
-@media (min-width: 900px) {
-  .booking-time {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
 .slot {
   padding: 10px 12px;
-  border-radius: 12px;
-  background: #fff;
+
+  background: var(--white);
+
   border: 1px solid var(--ring);
+  border-radius: 12px;
+
   text-align: center;
+
   cursor: pointer;
 }
 
@@ -805,15 +915,16 @@ body {
 
 .slot.primary {
   background: var(--brown);
-  color: #fff;
+  color: var(--white);
+
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.booking-type {
-  display: grid;
-  gap: 10px;
-}
+/* =========================================================
+   18. BOOKING – FORMULAR
+   ========================================================= */
 
+.booking-type,
 .booking-form {
   display: grid;
   gap: 10px;
@@ -822,62 +933,98 @@ body {
 .booking-form input,
 .booking-form textarea {
   width: 100%;
+
   padding: 10px 12px;
-  border-radius: 12px;
+
+  background: var(--white);
+
   border: 1px solid var(--ring);
-  background: #fff;
+  border-radius: 12px;
 }
 
 .booking-btn {
   padding: 12px;
-  border-radius: 12px;
+
   background: var(--brown);
-  color: #fff;
+  color: var(--white);
+
   border: 0;
-  cursor: pointer;
+  border-radius: 12px;
+
   font-weight: 800;
+
+  cursor: pointer;
 }
 
 .booking-summary {
-  background: #fff;
+  background: var(--white);
+
   border: 1px solid var(--ring);
   border-radius: 12px;
+
   padding: 10px 12px;
 }
 
 .booking-success {
   display: grid;
   gap: 12px;
+
   text-align: center;
 }
 
 .success-big {
+  color: #3b2118;
+
   font-size: 22px;
   font-weight: 800;
-  color: #3b2118;
 }
 
-/* Respektér brugere der ikke vil have animationer */
-@media (prefers-reduced-motion: reduce) {
-  .pill,
-  .clear-pill,
-  .dropdown-menu button {
-    transition: none !important;
+/* =========================================================
+   19. RESPONSIVT DESIGN
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Header på spiloversigten */
-.games-header {
-  padding: 18px 16px 8px;
+@media (min-width: 900px) {
+  .booking-logo {
+    height: 80px;
+    margin: 14px auto 10px;
+  }
+
+  .booking-cafes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .booking-card img {
+    height: 150px;
+  }
+
+  .booking-time {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
-.games-header__logo {
-  display: block;
-  width: 80px;
-  height: auto;
+@media (min-width: 1200px) {
+  .booking-cafes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
-/* Skjul filterpanelet, når det ikke er åbent */
-.filter-panel[hidden] {
-  display: none;
+/* =========================================================
+   20. REDUCERET BEVÆGELSE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

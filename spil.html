@@ -84,7 +84,10 @@
       <!-- FILTERPANEL -->
       <div class="filter-panel" id="filter-panel" hidden>
         <div class="filter-panel__header">
-          <h2>Filtrér spil</h2>
+          <div>
+            <h2>Filtrér spil</h2>
+            <p>Vælg de kriterier, der passer til jer</p>
+          </div>
 
           <button
             class="filter-panel__close"
@@ -98,131 +101,175 @@
 
         <div class="filter-panel__content">
           <!-- KATEGORI -->
-          <div class="filter-dropdown">
-            <button class="pill" type="button">Kategori ⌄</button>
+          <div class="filter-group">
+            <h3>Kategori</h3>
 
-            <div class="dropdown-menu">
-              <button type="button" data-filter="genre" data-value="Familie">
-                Familie
-              </button>
-
-              <button type="button" data-filter="genre" data-value="Kortspil">
-                Kortspil
-              </button>
-
-              <button type="button" data-filter="genre" data-value="Strategi">
+            <div class="filter-options">
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="genre"
+                data-value="Strategi"
+              >
                 Strategi
               </button>
 
-              <button type="button" data-filter="genre" data-value="Ordspil">
-                Ordspil
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="genre"
+                data-value="Familie"
+              >
+                Familie
               </button>
 
-              <button type="button" data-filter="genre" data-value="Party">
-                Party
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="genre"
+                data-value="Selskab"
+              >
+                Selskab
               </button>
 
-              <button type="button" data-filter="genre" data-value="Andre">
-                Andre
-              </button>
-
-              <button type="button" data-filter="genre" data-value="all">
-                Alle kategorier
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="genre"
+                data-value="Børn"
+              >
+                Børn
               </button>
             </div>
           </div>
 
-          <!-- SPILLERE -->
-          <div class="filter-dropdown">
-            <button class="pill" type="button">Spillere ⌄</button>
+          <!-- ANTAL SPILLERE -->
+          <div class="filter-group">
+            <h3>Antal spillere</h3>
 
-            <div class="dropdown-menu">
-              <button type="button" data-filter="players" data-value="1-2">
-                1–2
+            <div class="filter-options">
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="players"
+                data-value="1-2"
+              >
+                1 - 2
               </button>
 
-              <button type="button" data-filter="players" data-value="2-4">
-                2–4
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="players"
+                data-value="2-4"
+              >
+                2 - 4
               </button>
 
-              <button type="button" data-filter="players" data-value="4-6">
-                4–6
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="players"
+                data-value="4-6"
+              >
+                4 - 6
               </button>
 
-              <button type="button" data-filter="players" data-value="6-10">
-                6–10
-              </button>
-
-              <button type="button" data-filter="players" data-value="10+">
-                10+
-              </button>
-
-              <button type="button" data-filter="players" data-value="all">
-                Alle
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="players"
+                data-value="6-10"
+              >
+                6+
               </button>
             </div>
           </div>
 
           <!-- ALDER -->
-          <div class="filter-dropdown">
-            <button class="pill" type="button">Alder ⌄</button>
+          <div class="filter-group">
+            <h3>Alder</h3>
 
-            <div class="dropdown-menu">
-              <button type="button" data-filter="age" data-value="3">3+</button>
-              <button type="button" data-filter="age" data-value="6">6+</button>
-              <button type="button" data-filter="age" data-value="8">8+</button>
-              <button type="button" data-filter="age" data-value="10">
-                10+
-              </button>
-              <button type="button" data-filter="age" data-value="12">
-                12+
-              </button>
-              <button type="button" data-filter="age" data-value="15">
-                15+
-              </button>
-              <button type="button" data-filter="age" data-value="18">
-                18+
+            <div class="filter-options">
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="age"
+                data-value="6"
+              >
+                6 +
               </button>
 
-              <button type="button" data-filter="age" data-value="all">
-                Alle
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="age"
+                data-value="10"
+              >
+                10 +
+              </button>
+
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="age"
+                data-value="12"
+              >
+                12 +
+              </button>
+
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="age"
+                data-value="18"
+              >
+                18 +
               </button>
             </div>
           </div>
 
-          <!-- VARIGHED -->
-          <div class="filter-dropdown">
-            <button class="pill" type="button">Varighed ⌄</button>
+          <!-- SPILLETID -->
+          <div class="filter-group">
+            <h3>Spilletid</h3>
 
-            <div class="dropdown-menu">
-              <button type="button" data-filter="duration" data-value="0-15">
-                ≤ 15 min
+            <div class="filter-options">
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="duration"
+                data-value="0-30"
+              >
+                &lt; 30 min
               </button>
 
-              <button type="button" data-filter="duration" data-value="15-30">
-                15–30 min
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="duration"
+                data-value="30-60"
+              >
+                30 - 60 min
               </button>
 
-              <button type="button" data-filter="duration" data-value="30-60">
-                30–60 min
-              </button>
-
-              <button type="button" data-filter="duration" data-value="60-120">
-                60–120 min
-              </button>
-
-              <button type="button" data-filter="duration" data-value="120+">
-                120+ min
-              </button>
-
-              <button type="button" data-filter="duration" data-value="all">
-                Alle
+              <button
+                class="filter-option"
+                type="button"
+                data-filter="duration"
+                data-value="60-120"
+              >
+                60 + min
               </button>
             </div>
           </div>
+        </div>
+        <div class="filter-panel__actions">
+          <button type="button" class="filter-show-results" id="show-results">
+            Vis spil
+          </button>
 
           <button class="clear-pill" id="clear-filters-pill" type="button">
-            Ryd filtre
+            Nulstil alle filtre
           </button>
         </div>
       </div>
