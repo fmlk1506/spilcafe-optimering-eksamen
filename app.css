@@ -28,7 +28,12 @@ body {
 body {
   background: var(--cream);
   color: var(--text);
-  font: 16px/1.4 ui-sans-serif, system-ui, Segoe UI, Roboto, Inter;
+  font:
+    16px/1.4 ui-sans-serif,
+    system-ui,
+    Segoe UI,
+    Roboto,
+    Inter;
 }
 
 /* =========================================================
@@ -158,7 +163,9 @@ body {
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition: transform 0.18s ease, background-color 0.18s ease,
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
     box-shadow 0.18s ease;
   will-change: transform;
   transform-origin: center;
@@ -233,7 +240,9 @@ body {
   font-size: 15px;
   color: var(--text);
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
   display: inline-block;
   transform-origin: center;
 }
@@ -255,7 +264,9 @@ body {
   font-weight: 800;
   white-space: nowrap;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease,
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
@@ -370,95 +381,6 @@ body {
   font-size: 12px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-/* =========================================================
-  TABBAR – altid klikbar, hover-effekt, alle lige store
-  ========================================================= */
-.tabbar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 8000;
-  /* OVER alt almindeligt indhold/booking */
-  background: #efd8c6e6;
-  backdrop-filter: saturate(1.2) blur(6px);
-  border-top: 1px solid #e2cfc3;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  padding: 10px 8px;
-  /* lidt større samlet højde */
-}
-
-/* Gør ALLE knapper ens (inkl. huset) */
-.tabbar button {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: #7b5647;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 10px 4px;
-  /* lidt større */
-  font-size: 15px;
-  /* større tekst */
-  outline: 0;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.18s ease, background-color 0.18s ease,
-    color 0.18s ease, box-shadow 0.18s ease;
-  border-radius: 12px;
-  /* rundet baggrund ved hover */
-}
-
-/* Ikon + label */
-.tabbar button span {
-  font-size: 20px;
-  line-height: 1;
-}
-
-.tabbar button small {
-  display: block;
-  font-size: 12px;
-}
-
-/* Aktiv tilstand */
-.tabbar .tab.active {
-  color: #3b2118;
-  font-weight: 700;
-}
-
-.tabbar .tab.active::after {
-  content: "";
-  width: 24px;
-  height: 3px;
-  background: #3b2118;
-  border-radius: 999px;
-  margin-top: 4px;
-}
-
-/* Konsistent hover/focus på ALLE knapper inkl. huset */
-.tabbar button:hover,
-.tabbar button:focus-visible,
-.tabbar button:active {
-  transform: scale(1.08);
-  background: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-}
-
-/* Tilgængelighed – undgå grimme outlines men behold fokus */
-.tabbar button:focus-visible {
-  outline: 2px solid rgba(59, 33, 24, 0.35);
-  outline-offset: 2px;
-}
-
-/* Sørg for at modaler fortsat ligger OVER tabbaren */
-.modal {
-  z-index: 9000;
 }
 
 /* FOOTER */
@@ -749,7 +671,9 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
 }
 .cal-cell:hover {
   background: #f2e4d8;
@@ -883,8 +807,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .pill,
   .clear-pill,
-  .dropdown-menu button,
-  .tabbar button {
+  .dropdown-menu button {
     transition: none !important;
   }
 }

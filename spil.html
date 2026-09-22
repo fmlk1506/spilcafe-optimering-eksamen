@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spilcaféen</title>
     <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="navigation.css" />
     <link
       rel="shortcut icon"
       href="https://images.squarespace-cdn.com/content/v1/61fd2c9026a58c435d260f4c/1af90772-e642-4309-a2cb-f4161e36855e/SC-logo-2023-transparant-BG+Small+Crop.png"
@@ -184,7 +185,6 @@
     </div>
 
     <!-- Modal: stort kort -->
-    <!-- Modal: stort kort -->
     <div id="game-modal" class="modal" hidden>
       <div class="modal-backdrop" data-close></div>
       <article
@@ -218,29 +218,9 @@
       </article>
     </div>
 
-    <!-- Bundnavigation som i mockup -->
-    <nav class="tabbar tabbar--fab">
-      <button class="tab" id="tab-all">
-        <span>🎮</span><small>Alle spil</small>
-      </button>
+    <div id="navigation"></div>
 
-      <button class="tab" id="tab-reserve">
-        <span>📅</span><small>Reserver bord</small>
-      </button>
-
-      <!-- den runde, forhøjede hjem-knap -->
-      <button class="home-fab" id="tab-home" aria-label="Hjem">🏠</button>
-
-      <button class="tab" id="filter-favourites">
-        <span>❤️️</span><small>Favoritter</small>
-      </button>
-
-      <button class="tab" id="tab-profile">
-        <span>👤</span><small>Profil</small>
-      </button>
-    </nav>
-
-    <footer class="legal">© Spilcaféen</footer>
+    <script src="navigation.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
