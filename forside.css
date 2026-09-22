@@ -128,3 +128,198 @@ body {
   width: auto;
   max-width: none;
 }
+
+/* =========================================
+   POPULÆRE SPIL
+========================================= */
+
+.popular-games {
+  padding: 20px 16px 18px;
+}
+
+.popular-games__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.popular-games__header h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.popular-games__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b51f17;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.popular-games__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.popular-game-card {
+  position: relative;
+  min-width: 0;
+  padding: 12px 10px 10px;
+  background-color: #fff7ed;
+  border-radius: 16px;
+}
+
+.popular-game-card__favorite {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.popular-game-card__image {
+  display: block;
+  width: 100%;
+  height: 100px;
+  margin: 4px auto 8px;
+  object-fit: contain;
+}
+
+.popular-game-card h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.popular-game-card__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Populære spil ---------- */
+
+.popular-games {
+  padding: 20px 16px 24px;
+}
+
+.popular-games__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.popular-games__header h2 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.popular-games__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #c91c16;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.popular-games__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.popular-card {
+  min-width: 0;
+}
+
+.popular-card__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f5ebdc;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popular-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.popular-card__favorite {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background: #fff;
+
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.popular-card h3 {
+  margin: 8px 0 5px;
+  font-size: 14px;
+  line-height: 1.15;
+  font-weight: 700;
+
+  min-height: 32px;
+}
+
+.popular-card__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.popular-card__info span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
