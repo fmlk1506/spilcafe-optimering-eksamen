@@ -7,10 +7,10 @@ if (navigation) {
 
   let activePage = "forside";
 
-  if (currentPage === "spil.html") {
-    if (view === "favoritter") {
-      activePage = "favoritter";
-    } else if (view === "reservation") {
+  if (currentPage === "favoritter.html") {
+    activePage = "favoritter";
+  } else if (currentPage === "spil.html") {
+    if (view === "reservation") {
       activePage = "reservation";
     } else {
       activePage = "spil";
@@ -34,7 +34,7 @@ if (navigation) {
     },
     {
       id: "favoritter",
-      href: "spil.html?vis=favoritter",
+      href: "favoritter.html",
       label: "Favoritter",
       icon: "nav-favorit.svg",
       activeIcon: "nav-favorit-fyldt.svg",
