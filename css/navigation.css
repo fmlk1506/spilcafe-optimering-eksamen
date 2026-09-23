@@ -1,6 +1,6 @@
-/* ==============================
+/* ========================================
    BUNDNAVIGATION
-   ============================== */
+======================================== */
 
 body {
   padding-bottom: 65px;
@@ -10,6 +10,7 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
+
   width: 100%;
   min-height: 58px;
 
@@ -33,20 +34,21 @@ body {
 
   color: #111;
   text-decoration: none;
+
   font-size: 10px;
   font-weight: 500;
 }
 
 .bottom-nav__item img {
+  display: block;
   width: 24px;
   height: 24px;
-  display: block;
-}
-
-.bottom-nav__item--active {
-  color: #b51f17;
 }
 
 .bottom-nav__item span {
   line-height: 1.1;
+}
+
+.bottom-nav__item--active {
+  color: #b51f17;
 }

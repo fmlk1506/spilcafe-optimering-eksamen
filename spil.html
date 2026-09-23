@@ -8,12 +8,10 @@
 
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/navigation.css" />
-
     <link rel="icon" href="images/logo-spilcafeen.webp" type="image/webp" />
   </head>
 
   <body>
-    <!-- HEADER -->
     <header class="games-header">
       <a href="index.html" aria-label="Gå til forsiden">
         <img
@@ -24,19 +22,16 @@
       </a>
     </header>
 
-    <!-- BOOKING -->
     <section id="booking-view" class="booking" hidden>
       <div id="booking-stage" class="booking-stage"></div>
     </section>
 
-    <!-- SPILOVERSIGT -->
     <main class="page">
       <div class="games-intro">
         <h1>Spil</h1>
         <p>Find det rette spil til jer</p>
       </div>
 
-      <!-- SØGNING -->
       <div class="searchbar">
         <label for="search-input" class="visually-hidden">
           Søg efter spil
@@ -51,7 +46,6 @@
         <button class="icon-btn" type="button" aria-label="Søg">🔍</button>
       </div>
 
-      <!-- FILTER OG SORTERING -->
       <div class="filter-actions">
         <button
           class="filter-action filter-action--primary"
@@ -70,18 +64,8 @@
 
           <span>Filtrér</span>
         </button>
-
-        <button
-          class="filter-action filter-action--secondary"
-          type="button"
-          id="open-sort"
-        >
-          <span>Sortér</span>
-          <span aria-hidden="true">↓</span>
-        </button>
       </div>
 
-      <!-- AKTIVE FILTRE -->
       <section class="active-filters" id="active-filters" hidden>
         <h2>Aktive filtre</h2>
 
@@ -92,7 +76,6 @@
         ></div>
       </section>
 
-      <!-- FILTERPANEL -->
       <div class="filter-panel" id="filter-panel" hidden>
         <div class="filter-panel__header">
           <div>
@@ -111,7 +94,6 @@
         </div>
 
         <div class="filter-panel__content">
-          <!-- KATEGORI -->
           <div class="filter-group">
             <h3>Kategori</h3>
 
@@ -121,6 +103,7 @@
                 type="button"
                 data-filter="genre"
                 data-value="Strategi"
+                aria-pressed="false"
               >
                 Strategi
               </button>
@@ -130,6 +113,7 @@
                 type="button"
                 data-filter="genre"
                 data-value="Familie"
+                aria-pressed="false"
               >
                 Familie
               </button>
@@ -139,6 +123,7 @@
                 type="button"
                 data-filter="genre"
                 data-value="Selskab"
+                aria-pressed="false"
               >
                 Selskab
               </button>
@@ -148,13 +133,13 @@
                 type="button"
                 data-filter="genre"
                 data-value="Børn"
+                aria-pressed="false"
               >
                 Børn
               </button>
             </div>
           </div>
 
-          <!-- ANTAL SPILLERE -->
           <div class="filter-group">
             <h3>Antal spillere</h3>
 
@@ -164,6 +149,7 @@
                 type="button"
                 data-filter="players"
                 data-value="1-2"
+                aria-pressed="false"
               >
                 1 - 2
               </button>
@@ -173,6 +159,7 @@
                 type="button"
                 data-filter="players"
                 data-value="2-4"
+                aria-pressed="false"
               >
                 2 - 4
               </button>
@@ -182,6 +169,7 @@
                 type="button"
                 data-filter="players"
                 data-value="4-6"
+                aria-pressed="false"
               >
                 4 - 6
               </button>
@@ -191,13 +179,13 @@
                 type="button"
                 data-filter="players"
                 data-value="6-10"
+                aria-pressed="false"
               >
                 6+
               </button>
             </div>
           </div>
 
-          <!-- ALDER -->
           <div class="filter-group">
             <h3>Alder</h3>
 
@@ -207,8 +195,9 @@
                 type="button"
                 data-filter="age"
                 data-value="6"
+                aria-pressed="false"
               >
-                6 +
+                6+
               </button>
 
               <button
@@ -216,8 +205,9 @@
                 type="button"
                 data-filter="age"
                 data-value="10"
+                aria-pressed="false"
               >
-                10 +
+                10+
               </button>
 
               <button
@@ -225,8 +215,9 @@
                 type="button"
                 data-filter="age"
                 data-value="12"
+                aria-pressed="false"
               >
-                12 +
+                12+
               </button>
 
               <button
@@ -234,13 +225,13 @@
                 type="button"
                 data-filter="age"
                 data-value="18"
+                aria-pressed="false"
               >
-                18 +
+                18+
               </button>
             </div>
           </div>
 
-          <!-- SPILLETID -->
           <div class="filter-group">
             <h3>Spilletid</h3>
 
@@ -250,6 +241,7 @@
                 type="button"
                 data-filter="duration"
                 data-value="0-30"
+                aria-pressed="false"
               >
                 &lt; 30 min
               </button>
@@ -259,6 +251,7 @@
                 type="button"
                 data-filter="duration"
                 data-value="30-60"
+                aria-pressed="false"
               >
                 30 - 60 min
               </button>
@@ -268,14 +261,14 @@
                 type="button"
                 data-filter="duration"
                 data-value="60-120"
+                aria-pressed="false"
               >
-                60 + min
+                60+ min
               </button>
             </div>
           </div>
         </div>
 
-        <!-- FILTERHANDLINGER -->
         <div class="filter-panel__actions">
           <button type="button" class="filter-show-results" id="show-results">
             Vis spil
@@ -287,7 +280,6 @@
         </div>
       </div>
 
-      <!-- SPILLENE SKAL VISES HER -->
       <section
         id="game-list"
         class="card-grid"
@@ -295,41 +287,6 @@
       ></section>
     </main>
 
-    <!-- SKJULTE FELTER SOM APP.JS STADIG BRUGER -->
-    <div class="filters-storage" hidden>
-      <select id="genre-select">
-        <option value="all">Alle kategorier</option>
-      </select>
-
-      <select id="language-select">
-        <option value="all">Alle sprog</option>
-      </select>
-
-      <select id="difficulty-select">
-        <option value="all">Alle sværhedsgrader</option>
-      </select>
-
-      <input type="number" id="rating-from" min="0" max="5" step="0.1" />
-
-      <input type="number" id="rating-to" min="0" max="5" step="0.1" />
-
-      <input type="number" id="playtime-from" min="0" max="600" />
-
-      <input type="number" id="playtime-to" min="0" max="999" />
-
-      <input type="checkbox" id="available-only" />
-
-      <select id="sort-select">
-        <option value="none">Ingen sortering</option>
-        <option value="title">Titel (A-Å)</option>
-        <option value="playtime">Varighed</option>
-        <option value="rating">Rating</option>
-      </select>
-
-      <button id="clear-filters" type="button">Ryd</button>
-    </div>
-
-    <!-- MODAL -->
     <div id="game-modal" class="modal" hidden>
       <div class="modal-backdrop" data-close></div>
 
@@ -374,7 +331,6 @@
       </article>
     </div>
 
-    <!-- FAVORIT FEEDBACK -->
     <div
       class="favourite-feedback"
       id="favourite-feedback"
@@ -382,7 +338,7 @@
       aria-live="polite"
       hidden
     >
-      <span class="favourite-feedback__check" aria-hidden="true">✓</span>
+      <span class="favourite-feedback__check" aria-hidden="true"> ✓ </span>
 
       <span id="favourite-feedback-text"> Tilføjet til favoritter </span>
 
@@ -396,7 +352,6 @@
       </button>
     </div>
 
-    <!-- NAVIGATION -->
     <div id="navigation"></div>
 
     <script src="js/navigation.js"></script>

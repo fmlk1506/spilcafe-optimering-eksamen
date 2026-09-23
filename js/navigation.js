@@ -1,21 +1,18 @@
-const navigation = document.querySelector("#navigation");
+const navigation = document.getElementById("navigation");
 
 if (navigation) {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
   const params = new URLSearchParams(window.location.search);
   const view = params.get("vis");
 
-  let activePage = "forside";
-
-  if (currentPage === "favoritter.html") {
-    activePage = "favoritter";
-  } else if (currentPage === "spil.html") {
-    if (view === "reservation") {
-      activePage = "reservation";
-    } else {
-      activePage = "spil";
-    }
-  }
+  const activePage =
+    currentPage === "favoritter.html"
+      ? "favoritter"
+      : currentPage === "spil.html" && view === "reservation"
+        ? "reservation"
+        : currentPage === "spil.html"
+          ? "spil"
+          : "forside";
 
   const navItems = [
     {
@@ -52,17 +49,18 @@ if (navigation) {
     <nav class="bottom-nav" aria-label="Hovednavigation">
       ${navItems
         .map((item) => {
-          const active = activePage === item.id;
+          const isActive = activePage === item.id;
 
           return `
             <a
               href="${item.href}"
-              class="bottom-nav__item ${active ? "bottom-nav__item--active" : ""}"
-              ${active ? 'aria-current="page"' : ""}
+              class="bottom-nav__item ${isActive ? "bottom-nav__item--active" : ""}"
+              ${isActive ? 'aria-current="page"' : ""}
             >
               <img
-                src="images/${active ? item.activeIcon : item.icon}"
+                src="images/${isActive ? item.activeIcon : item.icon}"
                 alt=""
+                aria-hidden="true"
               />
               <span>${item.label}</span>
             </a>

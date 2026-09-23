@@ -1,1 +1,0 @@
-Optimeringslog – Delaflevering 2

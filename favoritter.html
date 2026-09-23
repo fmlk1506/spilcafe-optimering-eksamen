@@ -8,12 +8,10 @@
 
     <link rel="stylesheet" href="css/favoritter.css" />
     <link rel="stylesheet" href="css/navigation.css" />
-
     <link rel="icon" href="images/logo-spilcafeen.webp" type="image/webp" />
   </head>
 
   <body>
-    <!-- HEADER -->
     <header class="favourites-header">
       <a href="index.html" aria-label="Gå til forsiden">
         <img
@@ -25,13 +23,11 @@
     </header>
 
     <main class="favourites-page">
-      <!-- INTRO -->
       <section class="favourites-intro">
         <h1>Favoritter</h1>
         <p>Dine gemte spil</p>
       </section>
 
-      <!-- FAVORITTER MED GEMTE SPIL -->
       <section
         class="favourites-content"
         id="favourites-content"
@@ -39,35 +35,11 @@
       >
         <div class="favourites-toolbar">
           <p id="favourites-count">0 spil</p>
-
-          <div class="view-options" aria-label="Vælg visning">
-            <button
-              class="view-option active"
-              id="grid-view"
-              type="button"
-              aria-label="Vis favoritter som gitter"
-              aria-pressed="true"
-            >
-              ▦
-            </button>
-
-            <button
-              class="view-option"
-              id="list-view"
-              type="button"
-              aria-label="Vis favoritter som liste"
-              aria-pressed="false"
-            >
-              ☷
-            </button>
-          </div>
         </div>
 
-        <!-- FAVORITSPILLENE INDSÆTTES HER MED JAVASCRIPT -->
         <div class="favourites-grid" id="favourites-grid"></div>
       </section>
 
-      <!-- TOM FAVORITLISTE -->
       <section class="favourites-empty" id="favourites-empty" hidden>
         <div class="favourites-empty__heart" aria-hidden="true">♡</div>
 
@@ -86,7 +58,6 @@
       </section>
     </main>
 
-    <!-- NAVIGATION -->
     <div id="navigation"></div>
 
     <script src="js/navigation.js"></script>

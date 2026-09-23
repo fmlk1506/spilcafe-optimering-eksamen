@@ -3,14 +3,12 @@
    ========================================================= */
 
 :root {
-  /* Farver fra forsiden */
   --page-bg: #fffaf4;
   --light-bg: #f8eadc;
   --hero-bg: #fff3e7;
   --soft-pink: #f4ded3;
   --red: #b51d17;
 
-  /* Tekst og UI */
   --text: #000;
   --text-soft: #3b2118;
   --ring: #e2d2c5;
@@ -138,17 +136,15 @@ body {
 }
 
 /* =========================================================
-   6. FILTER- OG SORTERINGSKNAPPER
+   6. FILTERKNAP
    ========================================================= */
 
 .filter-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
   margin: 12px 0 20px;
 }
 
 .filter-action {
+  width: 100%;
   min-height: 44px;
   border-radius: 24px;
 
@@ -176,12 +172,6 @@ body {
   background: var(--red);
   color: var(--white);
   border: 2px solid var(--red);
-}
-
-.filter-action--secondary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--ring);
 }
 
 /* =========================================================
@@ -233,11 +223,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.filter-panel__intro {
-  margin: 0 0 28px;
-  font-size: 15px;
 }
 
 .filter-panel__content {
@@ -309,8 +294,12 @@ body {
   color: var(--white);
 }
 
+.filter-option.active:hover {
+  background-color: #9f1b16;
+}
+
 /* =========================================================
-   FILTERPANEL – KNAPPER
+   9. FILTERPANEL – KNAPPER
    ========================================================= */
 
 .filter-panel__actions {
@@ -361,15 +350,56 @@ body {
 }
 
 /* =========================================================
-   9. SKJULTE FELTER TIL APP.JS
+   10. AKTIVE FILTRE
    ========================================================= */
 
-.filters-storage[hidden] {
-  display: none;
+.active-filters {
+  margin-top: 22px;
+  margin-bottom: 18px;
+}
+
+.active-filters h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.active-filters__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border: none;
+  border-radius: 999px;
+
+  background-color: var(--soft-pink);
+  color: #a91f1a;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.active-filter:hover {
+  background-color: #edd0c3;
+}
+
+.active-filter:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
 }
 
 /* =========================================================
-   10. SPILOVERSIGT
+   11. SPILOVERSIGT
    ========================================================= */
 
 .card-grid {
@@ -436,7 +466,7 @@ body {
 }
 
 /* =========================================================
-   11. FAVORITTER OG BADGES
+   12. FAVORITTER OG BADGES
    ========================================================= */
 
 .fav {
@@ -492,7 +522,74 @@ body {
 }
 
 /* =========================================================
-   12. MODAL – SPILDETALJER
+   13. FAVORIT FEEDBACK
+   ========================================================= */
+
+.favourite-feedback {
+  position: fixed;
+  left: 50%;
+  bottom: 82px;
+  transform: translateX(-50%);
+
+  width: calc(100% - 32px);
+  max-width: 440px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 18px;
+
+  background-color: #2d2d2d;
+  color: var(--white);
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  z-index: 1000;
+}
+
+.favourite-feedback[hidden] {
+  display: none;
+}
+
+.favourite-feedback__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  border: 1.5px solid var(--white);
+  border-radius: 50%;
+
+  font-size: 13px;
+}
+
+.favourite-feedback__close {
+  margin-left: auto;
+  padding: 4px;
+
+  border: none;
+  background: transparent;
+  color: var(--white);
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.favourite-feedback__close:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   14. MODAL – SPILDETALJER
    ========================================================= */
 
 .modal[hidden] {
@@ -621,7 +718,7 @@ body {
 }
 
 /* =========================================================
-   13. REGLER I MODAL
+   15. REGLER I MODAL
    ========================================================= */
 
 .rules-btn {
@@ -673,8 +770,8 @@ body {
 }
 
 /* =========================================================
-   14. BOOKING
-   Beholdes foreløbigt som eksisterende design
+   16. BOOKING
+   Beholdes foreløbigt
    ========================================================= */
 
 .booking[hidden] {
@@ -755,7 +852,7 @@ body {
 }
 
 /* =========================================================
-   15. BOOKING – ANTAL PERSONER
+   17. BOOKING – ANTAL PERSONER
    ========================================================= */
 
 .booking-bubbles {
@@ -781,7 +878,7 @@ body {
 }
 
 /* =========================================================
-   16. BOOKING – KALENDER
+   18. BOOKING – KALENDER
    ========================================================= */
 
 .cal-header {
@@ -885,7 +982,7 @@ body {
 }
 
 /* =========================================================
-   17. BOOKING – TIDSPUNKTER
+   19. BOOKING – TIDSPUNKTER
    ========================================================= */
 
 .booking-time {
@@ -921,7 +1018,7 @@ body {
 }
 
 /* =========================================================
-   18. BOOKING – FORMULAR
+   20. BOOKING – FORMULAR
    ========================================================= */
 
 .booking-type,
@@ -980,7 +1077,7 @@ body {
 }
 
 /* =========================================================
-   19. RESPONSIVT DESIGN
+   21. RESPONSIVT DESIGN
    ========================================================= */
 
 /* Tablet */
@@ -990,7 +1087,7 @@ body {
   }
 }
 
-/* Større skærme */
+/* Større tablet / mindre desktop */
 @media (min-width: 900px) {
   .page,
   .games-header {
@@ -1034,7 +1131,7 @@ body {
 }
 
 /* =========================================================
-   20. REDUCERET BEVÆGELSE
+   22. REDUCERET BEVÆGELSE
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1046,131 +1143,4 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-}
-
-/* ========================================
-   AKTIVE FILTRE
-======================================== */
-
-.active-filters {
-  margin-top: 22px;
-  margin-bottom: 18px;
-}
-
-.active-filters h2 {
-  margin: 0 0 12px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.active-filters__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.active-filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 9px 13px;
-
-  border: none;
-  border-radius: 999px;
-
-  background-color: #f4ded3;
-  color: #a91f1a;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-.active-filter:hover {
-  background-color: #edd0c3;
-}
-
-.active-filter:focus-visible {
-  outline: 3px solid #000;
-  outline-offset: 2px;
-}
-
-/* Valgt filter */
-.filter-option.active {
-  background-color: #b51f17;
-  color: #ffffff;
-  border-color: #b51f17;
-}
-
-.filter-option.active:hover {
-  background-color: #9f1b16;
-}
-
-/* ========================================
-   FAVORIT FEEDBACK
-======================================== */
-
-.favourite-feedback {
-  position: fixed;
-  left: 50%;
-  bottom: 82px;
-  transform: translateX(-50%);
-
-  width: calc(100% - 32px);
-  max-width: 440px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 15px 18px;
-
-  background-color: #2d2d2d;
-  color: #ffffff;
-
-  border-radius: 12px;
-
-  font-size: 16px;
-  font-weight: 600;
-
-  z-index: 1000;
-}
-
-.favourite-feedback[hidden] {
-  display: none;
-}
-
-.favourite-feedback__check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 22px;
-  height: 22px;
-
-  border: 1.5px solid #ffffff;
-  border-radius: 50%;
-
-  font-size: 13px;
-}
-
-.favourite-feedback__close {
-  margin-left: auto;
-  padding: 4px;
-
-  border: none;
-  background: transparent;
-  color: #ffffff;
-
-  font-size: 24px;
-  line-height: 1;
-
-  cursor: pointer;
-}
-
-.favourite-feedback__close:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
 }
