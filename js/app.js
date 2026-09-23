@@ -416,7 +416,7 @@ function render() {
 // SPILKORT
 // ========================================
 
-function createGameCard(game) {
+function createGameCard(game, index) {
   const isFavourite = favourites.has(String(game.id));
 
   const favouriteClass = isFavourite ? "active" : "";
@@ -444,7 +444,7 @@ function createGameCard(game) {
         <img
           src="${getLocalGameImage(game)}"
           alt="${escapeHtml(game.title)}"
-          loading="lazy"
+          ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}
           decoding="async"
         >
 
