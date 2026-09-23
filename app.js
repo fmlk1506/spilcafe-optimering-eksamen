@@ -43,6 +43,17 @@ const mRules = document.getElementById("modal-rules");
 const rulesBtn = document.getElementById("rules-toggle");
 const rulesContent = document.getElementById("rules-content");
 
+// Favorit feedback
+const favouriteFeedback = document.getElementById("favourite-feedback");
+const favouriteFeedbackText = document.getElementById(
+  "favourite-feedback-text",
+);
+const closeFavouriteFeedback = document.getElementById(
+  "close-favourite-feedback",
+);
+
+let favouriteFeedbackTimer;
+
 // Nyt filterpanel
 const openFiltersButton = document.getElementById("open-filters");
 const closeFiltersButton = document.getElementById("close-filters");
@@ -583,8 +594,10 @@ function handleGameListClick(event) {
 
     if (FAVS.has(id)) {
       FAVS.delete(id);
+      showFavouriteFeedback("Fjernet fra favoritter");
     } else {
       FAVS.add(id);
+      showFavouriteFeedback("Tilføjet til favoritter");
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify([...FAVS]));
@@ -600,6 +613,24 @@ function handleGameListClick(event) {
     openModalById(card.dataset.id);
   }
 }
+
+function showFavouriteFeedback(message) {
+  if (!favouriteFeedback || !favouriteFeedbackText) return;
+
+  favouriteFeedbackText.textContent = message;
+  favouriteFeedback.hidden = false;
+
+  clearTimeout(favouriteFeedbackTimer);
+
+  favouriteFeedbackTimer = setTimeout(() => {
+    favouriteFeedback.hidden = true;
+  }, 3000);
+}
+
+closeFavouriteFeedback?.addEventListener("click", () => {
+  favouriteFeedback.hidden = true;
+  clearTimeout(favouriteFeedbackTimer);
+});
 
 // ========================================
 // FAVORITTER

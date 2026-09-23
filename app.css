@@ -1088,3 +1088,70 @@ body {
 .filter-option.active:hover {
   background-color: #9f1b16;
 }
+
+/* ========================================
+   FAVORIT FEEDBACK
+======================================== */
+
+.favourite-feedback {
+  position: fixed;
+  left: 50%;
+  bottom: 82px;
+  transform: translateX(-50%);
+
+  width: calc(100% - 32px);
+  max-width: 440px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 18px;
+
+  background-color: #2d2d2d;
+  color: #ffffff;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  z-index: 1000;
+}
+
+.favourite-feedback[hidden] {
+  display: none;
+}
+
+.favourite-feedback__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+
+  font-size: 13px;
+}
+
+.favourite-feedback__close {
+  margin-left: auto;
+  padding: 4px;
+
+  border: none;
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.favourite-feedback__close:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
