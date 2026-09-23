@@ -252,3 +252,48 @@ a {
 .favourites-content[hidden] {
   display: none;
 }
+
+/* ========================================
+   RESPONSIVT DESIGN
+======================================== */
+
+/* Tablet */
+@media (min-width: 600px) {
+  .favourites-page {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .favourites-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Større tablet / mindre desktop */
+@media (min-width: 900px) {
+  .favourites-header,
+  .favourites-page {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .favourites-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .favourites-header,
+  .favourites-page {
+    max-width: 1400px;
+  }
+
+  .favourites-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
