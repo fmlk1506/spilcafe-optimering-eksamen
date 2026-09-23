@@ -983,7 +983,22 @@ body {
    19. RESPONSIVT DESIGN
    ========================================================= */
 
+/* Tablet */
+@media (min-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Større skærme */
 @media (min-width: 900px) {
+  .page,
+  .games-header {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .booking-logo {
     height: 80px;
     margin: 14px auto 10px;
@@ -1002,7 +1017,17 @@ body {
   }
 }
 
+/* Desktop */
 @media (min-width: 1200px) {
+  .page,
+  .games-header {
+    max-width: 1400px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .booking-cafes {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
