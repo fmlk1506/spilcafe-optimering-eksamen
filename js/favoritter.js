@@ -78,6 +78,17 @@ function renderFavourites() {
 // ========================================
 // FAVORITKORT
 // ========================================
+function getLocalGameImage(game) {
+  const fileName = game.title
+    .toLowerCase()
+    .replace(/:/g, "")
+    .replace(/\./g, "")
+    .replace(/'/g, "")
+    .replace(/&/g, "and")
+    .replace(/\s+/g, "-");
+
+  return `images/spil/${fileName}.webp`;
+}
 
 function favouriteCard(game) {
   const players = game.players
@@ -90,7 +101,7 @@ function favouriteCard(game) {
     <article class="favourite-card" data-id="${game.id}">
       <div class="favourite-card__image">
         <img
-          src="${game.image}"
+          src="${getLocalGameImage(game)}"
           alt="${escapeHtml(game.title)}"
           loading="lazy"
           decoding="async"
