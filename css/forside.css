@@ -388,3 +388,203 @@ body {
 
   margin-right: 35px;
 }
+
+/* ==================================================
+   RESPONSIVT DESIGN
+   ================================================== */
+
+/* Tablet */
+@media (min-width: 600px) {
+  .home-hero {
+    min-height: 460px;
+  }
+
+  .home-hero__logo {
+    width: 135px;
+    margin-top: 28px;
+    margin-left: 48px;
+  }
+
+  .home-hero__content {
+    width: 48%;
+    margin-left: 48px;
+    margin-top: 28px;
+  }
+
+  .home-hero__content h1 {
+    font-size: 48px;
+  }
+
+  .home-hero__content p {
+    font-size: 17px;
+  }
+
+  .home-hero__image {
+    right: -100px;
+    height: 100%;
+  }
+
+  .popular-games {
+    padding: 28px 32px;
+  }
+
+  .popular-games__grid {
+    gap: 16px;
+  }
+
+  .popular-card {
+    padding: 14px;
+  }
+
+  .popular-card__image-wrap {
+    height: 160px;
+  }
+
+  .popular-card h3 {
+    font-size: 16px;
+  }
+
+  .popular-card__info {
+    font-size: 13px;
+  }
+
+  .game-finder {
+    margin: 0 32px 32px;
+    padding: 24px 28px;
+    min-height: 150px;
+  }
+
+  .game-finder h2 {
+    font-size: 26px;
+  }
+
+  .game-finder p {
+    font-size: 14px;
+  }
+
+  .game-finder__button {
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  .game-finder__illustration {
+    width: 120px;
+    font-size: 70px;
+    margin-right: 45px;
+  }
+}
+
+/* Større tablet / lille desktop */
+@media (min-width: 900px) {
+  .home-hero {
+    min-height: 520px;
+  }
+
+  .home-hero__logo {
+    width: 150px;
+    margin-left: 48px;
+    margin-top: 32px;
+  }
+
+  .home-hero__content {
+    width: 44%;
+    margin-left: 48px;
+    margin-top: 28px;
+  }
+
+  .home-hero__content h1 {
+    font-size: 54px;
+  }
+
+  .home-hero__content p {
+    font-size: 17px;
+    max-width: 340px;
+  }
+
+  .home-hero__actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-btn {
+    width: 235px;
+  }
+
+  .home-hero__image {
+    right: 0;
+    height: 100%;
+  }
+
+  .popular-games {
+    padding: 32px 48px;
+  }
+
+  .popular-games__header h2 {
+    font-size: 28px;
+  }
+
+  .popular-games__grid {
+    gap: 18px;
+  }
+
+  .popular-card {
+    padding: 16px;
+  }
+
+  .popular-card__image-wrap {
+    height: 190px;
+  }
+
+  .popular-card h3 {
+    font-size: 17px;
+  }
+
+  .popular-card__info {
+    font-size: 14px;
+  }
+
+  .game-finder {
+    margin: 0 48px 40px;
+    padding: 28px 32px;
+    min-height: 165px;
+  }
+
+  .game-finder h2 {
+    font-size: 28px;
+  }
+
+  .game-finder p {
+    font-size: 14px;
+  }
+
+  .game-finder__illustration {
+    width: 140px;
+    font-size: 76px;
+    margin-right: 45px;
+  }
+}
+
+/* =========================================
+   DESKTOP – 1200PX+
+========================================= */
+
+@media (min-width: 1200px) {
+  .popular-games,
+  .game-finder {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .popular-card__image-wrap {
+    height: 280px;
+  }
+
+  .home-hero__logo {
+    margin-left: 8%;
+  }
+
+  .home-hero__content {
+    margin-left: 8%;
+  }
+}
