@@ -442,7 +442,7 @@ function createGameCard(game) {
     >
       <div class="thumb">
         <img
-          src="${game.image}"
+          src="${getLocalGameImage(game)}"
           alt="${escapeHtml(game.title)}"
           loading="lazy"
           decoding="async"
@@ -557,7 +557,7 @@ function openModalById(id) {
   if (!game || !modal) return;
 
   if (modalImage) {
-    modalImage.src = game.image;
+    modalImage.src = getLocalGameImage(game);
     modalImage.alt = game.title;
   }
 
@@ -668,6 +668,21 @@ function handleKeydown(event) {
   if (event.key === "Escape" && modal && modal.hidden === false) {
     closeModal();
   }
+}
+
+// ========================================
+// LOKALE SPILBILLEDER
+// ========================================
+
+function getLocalGameImage(game) {
+  const fileName = game.title
+    .toLowerCase()
+    .replaceAll(" ", "-")
+    .replaceAll("æ", "ae")
+    .replaceAll("ø", "oe")
+    .replaceAll("å", "aa");
+
+  return `images/spil/${fileName}.webp`;
 }
 
 // ========================================
