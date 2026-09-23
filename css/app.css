@@ -14,10 +14,6 @@
   --ring: #e2d2c5;
   --white: #fff;
 
-  /* Booking - beholdes foreløbigt */
-  --brown: #41120c;
-  --brown-2: #5b2a1a;
-
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   --thumb-ratio: 4 / 3;
 }
@@ -126,13 +122,9 @@ body {
 }
 
 .icon-btn {
-  appearance: none;
-  border: 0;
-  background: transparent;
   font-size: 20px;
   line-height: 1;
   padding: 4px 6px;
-  cursor: pointer;
 }
 
 /* =========================================================
@@ -770,314 +762,7 @@ body {
 }
 
 /* =========================================================
-   16. BOOKING
-   Beholdes foreløbigt
-   ========================================================= */
-
-.booking[hidden] {
-  display: none;
-}
-
-.booking {
-  position: relative;
-
-  max-width: clamp(600px, 90vw, 1100px);
-
-  margin: 0 auto;
-  padding: 20px 16px 120px;
-}
-
-.booking-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-bottom: 8px;
-}
-
-.booking-logo {
-  display: block;
-
-  height: 56px;
-
-  margin: 10px auto 8px;
-}
-
-.booking-title {
-  margin: 10px 0 16px;
-
-  color: #3b2118;
-
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 800;
-  text-align: center;
-}
-
-.booking-stage {
-  display: block;
-}
-
-.booking-grid {
-  display: grid;
-  gap: 16px;
-}
-
-.booking-cafes {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.booking-card {
-  background: var(--brown);
-  color: var(--white);
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-
-  padding: 8px;
-
-  box-shadow: var(--shadow);
-
-  cursor: pointer;
-}
-
-.booking-card img {
-  display: block;
-
-  width: 100%;
-  height: 120px;
-
-  object-fit: cover;
-
-  border-radius: 10px;
-}
-
-/* =========================================================
-   17. BOOKING – ANTAL PERSONER
-   ========================================================= */
-
-.booking-bubbles {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.bubble {
-  background: var(--brown-2);
-  color: var(--white);
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-
-  padding: 16px 0;
-
-  font-size: 18px;
-  font-weight: 800;
-  text-align: center;
-
-  cursor: pointer;
-}
-
-/* =========================================================
-   18. BOOKING – KALENDER
-   ========================================================= */
-
-.cal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 6px 0 8px;
-}
-
-.cal-arrow {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: #3b2118;
-
-  font-size: 22px;
-
-  padding: 6px 10px;
-
-  cursor: pointer;
-}
-
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  justify-items: center;
-}
-
-.cal-day {
-  color: #7b5647;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.cal-cell {
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid var(--ring);
-  border-radius: 50%;
-
-  background: #7fa763;
-  color: var(--text);
-
-  cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    background-color 0.15s ease;
-}
-
-.cal-cell:hover {
-  background: #f2e4d8;
-  transform: scale(1.06);
-}
-
-.cal-cell.selected {
-  background: #7b5647;
-  color: var(--white);
-}
-
-.cal-cell.busy {
-  background: #c27474;
-  color: var(--white);
-  cursor: not-allowed;
-}
-
-.legend {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-top: 10px;
-
-  color: #7b5647;
-
-  font-size: 14px;
-}
-
-.dot {
-  display: inline-block;
-
-  width: 10px;
-  height: 10px;
-
-  border-radius: 50%;
-}
-
-.dot-green {
-  background: #7fb77e;
-}
-
-.dot-red {
-  background: #c27474;
-}
-
-/* =========================================================
-   19. BOOKING – TIDSPUNKTER
-   ========================================================= */
-
-.booking-time {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.slot {
-  padding: 10px 12px;
-
-  background: var(--white);
-
-  border: 1px solid var(--ring);
-  border-radius: 12px;
-
-  text-align: center;
-
-  cursor: pointer;
-}
-
-.slot.busy {
-  opacity: 0.45;
-  pointer-events: none;
-  text-decoration: line-through;
-}
-
-.slot.primary {
-  background: var(--brown);
-  color: var(--white);
-
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* =========================================================
-   20. BOOKING – FORMULAR
-   ========================================================= */
-
-.booking-type,
-.booking-form {
-  display: grid;
-  gap: 10px;
-}
-
-.booking-form input,
-.booking-form textarea {
-  width: 100%;
-
-  padding: 10px 12px;
-
-  background: var(--white);
-
-  border: 1px solid var(--ring);
-  border-radius: 12px;
-}
-
-.booking-btn {
-  padding: 12px;
-
-  background: var(--brown);
-  color: var(--white);
-
-  border: 0;
-  border-radius: 12px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-}
-
-.booking-summary {
-  background: var(--white);
-
-  border: 1px solid var(--ring);
-  border-radius: 12px;
-
-  padding: 10px 12px;
-}
-
-.booking-success {
-  display: grid;
-  gap: 12px;
-
-  text-align: center;
-}
-
-.success-big {
-  color: #3b2118;
-
-  font-size: 22px;
-  font-weight: 800;
-}
-
-/* =========================================================
-   21. RESPONSIVT DESIGN
+   16. RESPONSIVT DESIGN
    ========================================================= */
 
 /* Tablet */
@@ -1095,23 +780,6 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-
-  .booking-logo {
-    height: 80px;
-    margin: 14px auto 10px;
-  }
-
-  .booking-cafes {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .booking-card img {
-    height: 150px;
-  }
-
-  .booking-time {
-    grid-template-columns: repeat(6, 1fr);
-  }
 }
 
 /* Desktop */
@@ -1124,14 +792,10 @@ body {
   .card-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-
-  .booking-cafes {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 }
 
 /* =========================================================
-   22. REDUCERET BEVÆGELSE
+   17. REDUCERET BEVÆGELSE
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {

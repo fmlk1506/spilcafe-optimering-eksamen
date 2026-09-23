@@ -2,17 +2,13 @@ const navigation = document.getElementById("navigation");
 
 if (navigation) {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const params = new URLSearchParams(window.location.search);
-  const view = params.get("vis");
 
   const activePage =
     currentPage === "favoritter.html"
       ? "favoritter"
-      : currentPage === "spil.html" && view === "reservation"
-        ? "reservation"
-        : currentPage === "spil.html"
-          ? "spil"
-          : "forside";
+      : currentPage === "spil.html"
+        ? "spil"
+        : "forside";
 
   const navItems = [
     {
@@ -38,10 +34,10 @@ if (navigation) {
     },
     {
       id: "reservation",
-      href: "spil.html?vis=reservation",
       label: "Bordreservation",
       icon: "nav-reservation.svg",
       activeIcon: "nav-reservation-fyldt.svg",
+      disabled: true,
     },
   ];
 
@@ -50,6 +46,22 @@ if (navigation) {
       ${navItems
         .map((item) => {
           const isActive = activePage === item.id;
+
+          if (item.disabled) {
+            return `
+              <span
+                class="bottom-nav__item"
+                aria-disabled="true"
+              >
+                <img
+                  src="images/${item.icon}"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span>${item.label}</span>
+              </span>
+            `;
+          }
 
           return `
             <a

@@ -22,10 +22,6 @@
       </a>
     </header>
 
-    <section id="booking-view" class="booking" hidden>
-      <div id="booking-stage" class="booking-stage"></div>
-    </section>
-
     <main class="page">
       <div class="games-intro">
         <h1>Spil</h1>
@@ -43,7 +39,7 @@
           placeholder="Søg efter et spil..."
         />
 
-        <button class="icon-btn" type="button" aria-label="Søg">🔍</button>
+        <span class="icon-btn" aria-hidden="true">🔍</span>
       </div>
 
       <div class="filter-actions">
@@ -338,9 +334,9 @@
       aria-live="polite"
       hidden
     >
-      <span class="favourite-feedback__check" aria-hidden="true"> ✓ </span>
+      <span class="favourite-feedback__check" aria-hidden="true">✓</span>
 
-      <span id="favourite-feedback-text"> Tilføjet til favoritter </span>
+      <span id="favourite-feedback-text">Tilføjet til favoritter</span>
 
       <button
         class="favourite-feedback__close"
