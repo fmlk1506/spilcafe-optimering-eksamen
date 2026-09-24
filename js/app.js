@@ -673,6 +673,7 @@ function handleKeydown(event) {
 function getLocalGameImage(game) {
   const fileName = game.title
     .toLowerCase()
+    .replaceAll(":", "")
     .replaceAll(" ", "-")
     .replaceAll("æ", "ae")
     .replaceAll("ø", "oe")

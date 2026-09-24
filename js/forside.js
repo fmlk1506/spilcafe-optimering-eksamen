@@ -120,7 +120,7 @@ function getLocalGameImage(game) {
   const imageFiles = {
     Skak: "skak.webp",
     Catan: "catan.webp",
-    "Ticket to Ride: Europe": "ticket-to-ride:-europe.webp",
+    "Ticket to Ride: Europe": "ticket-to-ride-europe.webp",
   };
 
   return `images/spil/${imageFiles[game.title]}`;
