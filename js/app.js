@@ -335,13 +335,9 @@ function getFilters() {
 
 function applyFilters(gameData, filters) {
   return gameData.filter((game) => {
-    const searchableText = `
-      ${game.title || ""}
-      ${game.description || ""}
-      ${game.rules || ""}
-    `.toLowerCase();
+    const gameTitle = (game.title || "").toLowerCase();
 
-    if (filters.query && !searchableText.includes(filters.query)) {
+    if (filters.query && !gameTitle.includes(filters.query)) {
       return false;
     }
 
